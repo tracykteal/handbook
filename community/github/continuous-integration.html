@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="3. Continuous integration" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.pyopensci.org/governance/community/github/continuous-integration.html" />
+<meta property="og:site_name" content="pyOpenSci Python Package Guide" />
+<meta property="og:description" content="What is CI?: Continuous Integration (CI) refers to checks and tests that are triggered by events that occur within a GitHub repository such as pushing a commit, opening a pull request, and merging ..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="https://www.pyopensci.org/governance/_images/social_previews/summary_community_github_continuous-integration_a7349262.png" />
+<meta property="og:image:alt" content="What is CI?: Continuous Integration (CI) refers to checks and tests that are triggered by events that occur within a GitHub repository such as pushing a comm..." />
+<meta name="description" content="What is CI?: Continuous Integration (CI) refers to checks and tests that are triggered by events that occur within a GitHub repository such as pushing a commit, opening a pull request, and merging ..." />
+<meta name="twitter:card" content="summary_large_image" />
+    <link href="https://www.pyopensci.org/images/favicon.ico" rel="icon" type="image/x-icon">
+    <title>3. Continuous integration &#8212; pyOpenSci Handbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/pyos-sphinx-theme.css?v=fb569b27" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@400;700&family=Work+Sans:wght@400;700" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'community/github/continuous-integration';</script>
+    <script src="../../_static/matomo.js?v=918da087"></script>
+    <link rel="canonical" href="https://www.pyopensci.org/governance/community/github/continuous-integration.html" />
+    <link rel="icon" href="https://www.pyopensci.org/images/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pyOpenSci GitHub Permissions" href="permissions.html" />
+    <link rel="prev" title="2. pyOpenSci Pull Request Process" href="pull-requests.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content"><p><a href='https://www.pyopensci.org/software-peer-review/about/intro.html'>Submit Your Python Package for Peer Review - Learn More!</a></p></div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo-light-mode.png" class="logo__image only-light" alt="pyOpenSci Handbook. The pyOpenSci logo is a purple flower with pyOpenSci under it. The o in open sci is the center of the flower"/>
+    <img src="../../_static/logo-dark-mode.png" class="logo__image only-dark pst-js-only" alt="pyOpenSci Handbook. The pyOpenSci logo is a purple flower with pyOpenSci under it. The o in open sci is the center of the flower"/>
+  
+  
+    <p class="title logo__title">Handbook</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../governance/index.html">
+    Structure & Values
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Community
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../organization/index.html">
+    Organization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../CODE_OF_CONDUCT.html">
+    Code of Conduct
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../CONTRIBUTING.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../CHANGELOG.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.pyopensci.org">
+    pyOpenSci Website
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.pyopensci.org/python-package-guide">
+    Packaging Guide
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://pyopensci.org/peer-review-guide">
+    Peer Review Guide
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyopensci/governance" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyOpenSci" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../governance/index.html">
+    Structure & Values
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Community
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../organization/index.html">
+    Organization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../CODE_OF_CONDUCT.html">
+    Code of Conduct
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../CONTRIBUTING.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../CHANGELOG.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.pyopensci.org">
+    pyOpenSci Website
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.pyopensci.org/python-package-guide">
+    Packaging Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://pyopensci.org/peer-review-guide">
+    Peer Review Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyopensci/governance" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyOpenSci" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Social Media</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../social.html">Social Media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../slack.html">Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zenodo.html">Zenodo &amp; Citation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GitHub Processes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="our-repositories.html">Our Repos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issues.html">GitHub Issue Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pull-requests.html">Pull Requests</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Continuous Integration (CI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permissions.html">GitHub permissions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">pyOpenSci Events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../events/intro.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/sprints.html">pyOpenSci Sprints</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Community Handbook</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">3. Continuous integration</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="continuous-integration">
+<h1>3. Continuous integration<a class="headerlink" href="#continuous-integration" title="Link to this heading">#</a></h1>
+<section id="what-is-ci">
+<h2>What is CI?<a class="headerlink" href="#what-is-ci" title="Link to this heading">#</a></h2>
+<p>Continuous Integration (CI) refers to checks and tests that are triggered by
+events that occur within a GitHub repository such as pushing a commit, opening a pull request, and
+merging a pull request. In the pyOpenSci organization, each commit that is pushed
+to a GitHub repository triggers at least one or more automated CI workflows. For the <a class="reference external" href="https://www.pyopensci.org/">pyOpenSci
+website repository</a> and our online books such as
+the <a class="reference external" href="https://github.com/pyopensci/python-package-guide">Python packaging guidebook</a>, this build will:</p>
+<ul class="simple">
+<li><p>Build the live rendered version of the online content with any changes added
+in the current commit(s) or pull requests.</p></li>
+<li><p>Check the text for spelling issues,</p></li>
+<li><p>Check images for missing alt tags, incorrect image paths and more.</p></li>
+</ul>
+<p>If the repository has code, it will check for code style.</p>
+<p>Having a CI setup on each pyOpenSci GitHub repository ensures that we detect
+issues such as bad links or broken code before they’re merged into the main
+repository.</p>
+<section id="what-do-the-green-and-red-checks-mean">
+<h3>What do the green and red checks mean?<a class="headerlink" href="#what-do-the-green-and-red-checks-mean" title="Link to this heading">#</a></h3>
+<p>The green and red checks in the CI block indicate the status of these automated
+checks:</p>
+<ul class="simple">
+<li><p><strong>Green checks</strong>: These indicate that the code has passed the CI checks.
+This means the code meets the project’s standards and is likely free from
+errors or issues related to the specific checks that have passed.</p></li>
+<li><p><strong>Red X’s</strong>: These indicate that the code has failed the associated CI
+checks. This means there are issues that need to be addressed before the code
+can be merged. The issues could be related to code style, formatting, tests,
+or other criteria specified by the CI configuration.</p></li>
+</ul>
+<figure class="align-default" id="id1">
+<img alt="A screenshot of the GitHub CI notifications for a sample pyOpenSci repository. There are four rows of information. The first row reads &quot;1 workflow awaiting approval. This workflow requires approval from a maintainer. Learn more about approving workflows. 1 failing and 1 successful checks. To the far right of the row is linked text reading Hide all checks. The text Learn more about approving workflows is linked. The second row has a red x on the left, followed by the letter P in a gold square, and the text pre-commit.ci - pr -- checks completed with failures. To the far right is linked text reading Details. On the third row there is a green check mark followed by the Circle CI logo and the text ci/circleci: build_book -- Your tests passed on CircleCI! And to the far right there is linked text reading Details. The fourth and final row has a small white checkmark inside a large green circle with text reading This branch has no conflicts with the base branch. Only those with write access to this repository can merge pull requests. The text write access is linked." src="../../_images/contributor-ci-fail.png" />
+<figcaption>
+<p><span class="caption-text">When a CI check fails, you’ll see a red ‘X’ next to the CI check that hasn’t passed</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="if-a-ci-check-is-red">
+<h4>If a CI check is red<a class="headerlink" href="#if-a-ci-check-is-red" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Click on “Details”</strong> next to the failed check to get more information
+about the failure.</p></li>
+<li><p><strong>Review the logs or output</strong> provided to understand what went wrong.</p></li>
+<li><p><strong>Make the necessary changes</strong> to fix the issue.</p></li>
+<li><p><strong>Push the updated code</strong> to the pull request to trigger the CI checks
+again.</p></li>
+</ol>
+<p>If something isn’t working as expected or you are having a hard time
+understanding why CI is failing (we’ve all been there!), please ping someone
+else in the organization for help. As a pyOpenSci community, we are always
+here to help each other.</p>
+<p>If all CI checks are green, you are good to go. Ping a pyOpenSci repository
+owner on GitHub to review your pull request. The pull request can be merged
+once you have approval from another repository owner.</p>
+<p>If you don’t know who to ping, no worries. Someone from the pyOpenSci
+organization will see your pull request and get back to you.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Generally, we require a single passing approval to merge a pull request.
+However, in some cases, if you are a pyOpenSci staff member or community
+member with admin/write access, it could be the case that you need to merge
+something immediately (i.e., fixing a small piece of breaking code, a spelling
+error, or adding a new piece of content that has already been agreed upon).</p>
+</div>
+</section>
+</section>
+</section>
+<section id="ci-and-outside-contributors">
+<h2>CI and outside contributors<a class="headerlink" href="#ci-and-outside-contributors" title="Link to this heading">#</a></h2>
+<p>If someone from outside of the pyOpenSci organization submits a pull request,
+then someone within the organization needs to approve and run CI. If you have
+those superpowers, please go ahead and allow CI to run for new contributors.
+You can’t break anything by running CI, so always feel confident in our repos
+when you click that button, assuming that the PR is legitimate and submitted
+from a valid user!</p>
+<figure class="align-default" id="id2">
+<img alt="A screenshot of the GitHub CI notifications for a sample pyOpenSci repository. There are four rows of information. The first row reads &quot;1 workflow awaiting approval. This workflow requires approval from a maintainer. Learn more about approving workflows. 1 failing and 1 successful checks. Underneath this text is a button that says &quot;Approve and run.&quot; To the far right of the row is linked text reading Hide all checks. The text Learn more about approving workflows is linked. The second row has a red x on the left, followed by the letter P in a gold square, and the text pre-commit.ci - pr -- checks completed with failures. To the far right is linked text reading Details. On the third row there is a green check mark followed by the Circle CI logo and the text ci/circleci: build_book -- Your tests passed on CircleCI! And to the far right there is linked text reading Details. The fourth and final row has a small white checkmark inside a large green circle with text reading This branch has no conflicts with the base branch. Only those with write access to this repository can merge pull requests. The text write access is linked." src="../../_images/maintainer-approve-workflow.png" />
+<figcaption>
+<p><span class="caption-text">When a new contributor from outside of the pyOpenSci organization submits a pull request, this notification will appear. You can click the “Approve and run” button to approve and run continuous integration.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Next to each CI step that was run, there is a details button. If you click on
+that link, it will give you more information about what has run/not run as
+expected in the build.</p>
+</section>
+<section id="website-ci-checks">
+<h2>Website CI checks<a class="headerlink" href="#website-ci-checks" title="Link to this heading">#</a></h2>
+<p>All of our website repositories have several CI builds, including:</p>
+<ol class="arabic simple">
+<li><p>A link checker.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">htmlproofer</span></code>, which checks both links and alt tags, as well as images.</p></li>
+<li><p>A CI build that shows you what the rendered site looks like when built
+online. Currently, we are using <a class="reference external" href="https://circleci.com/">CircleCI</a> for a
+live rendered build, as CircleCI allows for in-browser website build checks.
+GitHub requires you to download, unzip, and view an archive with the build
+site locally.</p></li>
+</ol>
+</section>
+<section id="pyopensci-checks-for-broken-links-and-missing-alt-tags-htmlproofer">
+<h2>pyOpenSci checks for broken links and missing alt tags: HTMLProofer<a class="headerlink" href="#pyopensci-checks-for-broken-links-and-missing-alt-tags-htmlproofer" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/gjtorikian/html-proofer">HTMLProofer</a> is a ruby-based HTML validation tool that checks for:</p>
+<ul class="simple">
+<li><p>correct image references</p></li>
+<li><p>accessibility including alt tags for each image</p></li>
+<li><p>broken links.</p></li>
+</ul>
+<p>For a full list of checks, please refer to the <a class="reference external" href="https://github.com/gjtorikian/html-proofer">HTMLProofer documentation</a>.</p>
+<p>The HTMLProofer tool is integrated into all pyOpenSci website GitHub repositories including the core website, the packaging guide, our peer review guide and this handbook that you are reading now. You can view the outputs from HTMLProofer on a pull request, by clicking on the Details section of CI build for each repository.
+For all of our sphinx books, the CI build that you will need to check is called <strong>Build Push github pages / build-book (pull_request)</strong> line. It looks like this:</p>
+<figure class="align-default" id="id3">
+<img alt="A screenshot of the GitHub CI notifications for a sample pyOpenSci repository. There is a header that reads All checks have passed, with the text 3 successful checks beneath it. To the right side of the header is linked text reading Hide all checks. Below the header are three rows of information. The first row reads Build Push github pages / build-book (pull_request), the second reads ci/circleci: build_book -- Your tests passed on CircleCI!, and the third reads pre-commi.ci - pr -- checks completed successfully. There is a green checkmark next to each line of text. Beneath these rows is the text This branch has no conflicts with the base branch. Merging can be performed automatically. There is also a green Merge pull request button." src="../../_images/htmlproofer-pass.png" />
+<figcaption>
+<p><span class="caption-text">A screenshot from a GitHub PR where all checks have passed.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Once you click on the CI output Details, you’ll be taken to the <code class="docutils literal notranslate"><span class="pre">build-book</span></code> jobs screen, which looks like this:</p>
+<figure class="align-default" id="id4">
+<img alt="A screenshot of the build-book jobs page in GitHub. There's a white column to the left with the job name and run details, and a large black box to the right with all of the various dropdowns within the build-book job. The htmlproofer dropdown is just over halfway down the page." src="../../_images/htmlproofer-build-book.png" />
+<figcaption>
+<p><span class="caption-text">A screenshot of the build-book jobs page in GitHub.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When you expand the htmlproofer line, which reads Check HTML using htmlproofer, you will see the following:</p>
+<figure class="align-default" id="id5">
+<img alt="A screenshot of the build-book jobs page in GitHub with htmlproofer expanded. There's a white column to the left with the job name and run details, and a large black box to the right with all of the various dropdowns within the build-book job. The htmlproofer dropdown is just over halfway down the page and expanded to reveal information such as the run details, which checks were run, how many links were checked, whether or not HTMLProofer was successful, and how long the run took." src="../../_images/htmlproofer-build-book.png" />
+<figcaption>
+<p><span class="caption-text">A screenshot of the build-book jobs page in GitHub with htmlproofer expanded.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If all of the HTMLProofer checks pass, you won’t see any errors. Instead, you will see a bright green checkmark. However, sometimes you may encounter an error.
+Below is an image the shows a CI error associated with the build:</p>
+<figure class="align-default" id="id6">
+<img alt="A screenshot of the GitHub CI notifications for a sample pyOpenSci repository. There is a header that reads All checks have passed, with the text 3 failing checks beneath it. To the right side of the header is linked text reading Hide all checks. Below the header are three rows of information. The first row reads Build Push github pages / build-book (pull_request), the second reads ci/circleci: build_book -- Your tests failed on CircleCI!, and the third reads pre-commi.ci - pr -- checks completed with failures. There is a red check next to each line of text. Beneath these rows is the text This branch has no conflicts with the base branch. Merging can be performed automatically. There is also a green Merge pull request button." src="../../_images/htmlproofer-fail.png" />
+<figcaption>
+<p><span class="caption-text">A screenshot from a GitHub PR where all checks have passed.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When there is an error in the pyOpenSci CI build, there are a few things to consider.</p>
+<ol class="arabic simple">
+<li><p>Are the CI errors unrelated to your pull request? pyOpenSci’s CI builds run on all the files in the repository by default. Sometimes, a link might become broken simply because the website is down. And that break has nothing to do with your pull request! In that case, pyOpenSci repository maintainers can still merge the pull request, even if there are failed checks.</p></li>
+<li><p>There are also other CI checks that are happening within each repository in addition to HTML proofer. If more than one build fails, there may be more going on here than just an HTMLProofer error.</p></li>
+</ol>
+<p>Below is an example of a broken build due to HTMLProofer. When you click on the details for the build, you see this:</p>
+<figure class="align-default" id="id7">
+<img alt="A screenshot of the build-book jobs page in GitHub with htmlproofer expanded. There's a white column to the left with the job name and run details with a large red X next to build-book, and a large black box to the right with all of the various dropdowns within the build-book job. The htmlproofer dropdown has a red X next to it, and is just over halfway down the page. When expanded, it reveals information such as the run details, which checks were run, how many links were checked, whether or not HTMLProofer was successful, and how long the run took." src="../../_images/htmlproofer-error-message.png" />
+<figcaption>
+<p><span class="caption-text">A screenshot of the build-book jobs page in GitHub with htmlproofer expanded.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In this case, HTMLProofer told you that none of the images submitted with this PR could be found. In this case you should go back and double check that the images are in the correct folder and that their paths’ are correct. In this case, the author forgot the leading forward slash in the image paths.</p>
+<p>If you see a broken HTMLProofer build, you can continue to make updates to the pull request either locally or through inline comments, until no
+errors are returned by HTMLProofer. Once you have a green check next to the build, it’s time to submit your pull request for review!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some cases you may be unsure as to why HTMLProofer or any part of our pyOpenSci CI checks are failing. In these cases, feel free to ping a pyOpenSci
+repository maintainer for help. We understand that Continuous Integration (CI) can be confusing to navigate, even for seasoned GitHub users.</p>
+</div>
+</section>
+<section id="about-the-pre-commit-ci-bot">
+<span id="pre-commit-ci"></span><h2>About the Pre-Commit CI Bot<a class="headerlink" href="#about-the-pre-commit-ci-bot" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://pre-commit.ci/">Pre-commit CI bot</a> is a continuous integration
+service that automatically runs pre-commit hooks on each pull request. This
+helps maintain code quality and consistency without requiring developers to
+run pre-commit locally.</p>
+<p>To run the bot on a PR, add the following command to a standalone comment:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">autofix</span></code></p>
+<p>When you do this, the bot will run all of the hooks that it can, adding a new
+commit to the pull request for you.</p>
+<section id="what-the-bot-can-fix">
+<h3>What the bot can fix<a class="headerlink" href="#what-the-bot-can-fix" title="Link to this heading">#</a></h3>
+<p>The bot can in-place fix many linting and style issues in our content,
+including:</p>
+<ul class="simple">
+<li><p>Automatically fixing formatting issues such as trailing whitespace and
+missing newlines.</p></li>
+<li><p>Applying code style adjustments as specified by hooks like
+<a class="reference external" href="https://github.com/psf/black"><code class="docutils literal notranslate"><span class="pre">black</span></code></a> and
+<a class="reference external" href="https://pycqa.github.io/isort/"><code class="docutils literal notranslate"><span class="pre">isort</span></code></a>.</p></li>
+</ul>
+</section>
+<section id="what-the-bot-cant-fix">
+<h3>What the bot can’t fix<a class="headerlink" href="#what-the-bot-cant-fix" title="Link to this heading">#</a></h3>
+<p>The bot can’t fix some things, such as:</p>
+<ul class="simple">
+<li><p>Logical errors or bugs in the code.</p></li>
+<li><p>Issues that require human judgment, such as resolving complex merge
+conflicts or making design decisions.</p></li>
+<li><p>Spelling errors.</p></li>
+</ul>
+<p>If the bot finds errors that it can’t fix, you will need to make those changes
+locally.</p>
+</section>
+<section id="using-the-bot-instead-of-pre-commit-hooks">
+<h3>Using the bot instead of pre-commit hooks<a class="headerlink" href="#using-the-bot-instead-of-pre-commit-hooks" title="Link to this heading">#</a></h3>
+<p>pyOpenSci contributors may prefer not to set up pre-commit locally. In that
+case, we can rely on the pre-commit.ci bot to fix things as needed.</p>
+</section>
+<section id="bot-setup">
+<h3>Bot setup<a class="headerlink" href="#bot-setup" title="Link to this heading">#</a></h3>
+<p>To set up the bot in a new repository:</p>
+<ol class="arabic simple">
+<li><p><strong>Enable pre-commit.ci</strong> on your repository through the
+<a class="reference external" href="https://pre-commit.ci/">pre-commit.ci website</a>.</p></li>
+<li><p>The pre-commit.ci bot will automatically run checks and apply fixes on
+pull requests.</p></li>
+<li><p>Review the bot’s output and ensure all checks pass before merging your
+code.</p></li>
+</ol>
+<p>This approach ensures that all contributions meet our pyOpenSci code and text
+quality standards without requiring each contributor to install and run
+pre-commit locally.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pull-requests.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2. pyOpenSci Pull Request Process</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="permissions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">pyOpenSci GitHub Permissions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ci">What is CI?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-the-green-and-red-checks-mean">What do the green and red checks mean?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-a-ci-check-is-red">If a CI check is red</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-and-outside-contributors">CI and outside contributors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#website-ci-checks">Website CI checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyopensci-checks-for-broken-links-and-missing-alt-tags-htmlproofer">pyOpenSci checks for broken links and missing alt tags: HTMLProofer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-pre-commit-ci-bot">About the Pre-Commit CI Bot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-bot-can-fix">What the bot can fix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-bot-cant-fix">What the bot can’t fix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-bot-instead-of-pre-commit-hooks">Using the bot instead of pre-commit hooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bot-setup">Bot setup</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/pyopensci/governance/edit/main/community/github/continuous-integration.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/community/github/continuous-integration.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, pyOpenSci.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

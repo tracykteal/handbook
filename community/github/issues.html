@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="pyOpenSci GitHub issue process" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.pyopensci.org/governance/community/github/issues.html" />
+<meta property="og:site_name" content="pyOpenSci Python Package Guide" />
+<meta property="og:description" content="When possible, GitHub pull requests, issue submissions, and reviews should follow standard open source workflows. Below are guidelines for handling issues in the pyOpenSci GitHub organization. Guid..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="https://www.pyopensci.org/governance/_images/social_previews/summary_community_github_issues_0c1205cc.png" />
+<meta property="og:image:alt" content="When possible, GitHub pull requests, issue submissions, and reviews should follow standard open source workflows. Below are guidelines for handling issues in..." />
+<meta name="description" content="When possible, GitHub pull requests, issue submissions, and reviews should follow standard open source workflows. Below are guidelines for handling issues in the pyOpenSci GitHub organization. Guid..." />
+<meta name="twitter:card" content="summary_large_image" />
+    <link href="https://www.pyopensci.org/images/favicon.ico" rel="icon" type="image/x-icon">
+    <title>pyOpenSci GitHub issue process &#8212; pyOpenSci Handbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/pyos-sphinx-theme.css?v=fb569b27" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@400;700&family=Work+Sans:wght@400;700" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'community/github/issues';</script>
+    <script src="../../_static/matomo.js?v=918da087"></script>
+    <link rel="canonical" href="https://www.pyopensci.org/governance/community/github/issues.html" />
+    <link rel="icon" href="https://www.pyopensci.org/images/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2. pyOpenSci Pull Request Process" href="pull-requests.html" />
+    <link rel="prev" title="pyOpenSci GitHub repositories" href="our-repositories.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content"><p><a href='https://www.pyopensci.org/software-peer-review/about/intro.html'>Submit Your Python Package for Peer Review - Learn More!</a></p></div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo-light-mode.png" class="logo__image only-light" alt="pyOpenSci Handbook. The pyOpenSci logo is a purple flower with pyOpenSci under it. The o in open sci is the center of the flower"/>
+    <img src="../../_static/logo-dark-mode.png" class="logo__image only-dark pst-js-only" alt="pyOpenSci Handbook. The pyOpenSci logo is a purple flower with pyOpenSci under it. The o in open sci is the center of the flower"/>
+  
+  
+    <p class="title logo__title">Handbook</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../governance/index.html">
+    Structure & Values
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Community
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../organization/index.html">
+    Organization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../CODE_OF_CONDUCT.html">
+    Code of Conduct
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../CONTRIBUTING.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../CHANGELOG.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.pyopensci.org">
+    pyOpenSci Website
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.pyopensci.org/python-package-guide">
+    Packaging Guide
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://pyopensci.org/peer-review-guide">
+    Peer Review Guide
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyopensci/governance" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyOpenSci" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../governance/index.html">
+    Structure & Values
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Community
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../organization/index.html">
+    Organization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../CODE_OF_CONDUCT.html">
+    Code of Conduct
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../CONTRIBUTING.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../CHANGELOG.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.pyopensci.org">
+    pyOpenSci Website
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.pyopensci.org/python-package-guide">
+    Packaging Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://pyopensci.org/peer-review-guide">
+    Peer Review Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyopensci/governance" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyOpenSci" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Social Media</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../social.html">Social Media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../slack.html">Slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zenodo.html">Zenodo &amp; Citation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GitHub Processes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="our-repositories.html">Our Repos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">GitHub Issue Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pull-requests.html">Pull Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous-integration.html">Continuous Integration (CI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permissions.html">GitHub permissions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">pyOpenSci Events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../events/intro.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/sprints.html">pyOpenSci Sprints</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Community Handbook</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pyOpenSci GitHub issue process</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pyopensci-github-issue-process">
+<h1>pyOpenSci GitHub issue process<a class="headerlink" href="#pyopensci-github-issue-process" title="Link to this heading">#</a></h1>
+<p>When possible, GitHub pull requests, issue submissions, and reviews should follow
+standard open source workflows. Below are guidelines for handling issues in the
+pyOpenSci GitHub organization.</p>
+<section id="guidelines-for-new-issues">
+<h2>Guidelines for new issues<a class="headerlink" href="#guidelines-for-new-issues" title="Link to this heading">#</a></h2>
+<p><strong>Issues should be as specific as possible:</strong> Specificity within an issue helps
+both our future selves and outside contributors understand the goal or desired
+outcome associated with addressing the issue. This is important both internally
+and for issues tagged as <code class="docutils literal notranslate"><span class="pre">help-wanted</span></code>, which we hope community members will
+address in pyOpenSci sprints.</p>
+<p>To ensure an issue is well-written and specific, include the following details:</p>
+<ul class="simple">
+<li><p><strong>Clear title:</strong> A concise and descriptive title summarizing the issue or
+feature request helps us scan through issues and understand what each issue is
+about. Below are some example titles that are specific:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bug:</span> <span class="pre">broken</span> <span class="pre">link</span> <span class="pre">in</span> <span class="pre">link-to-page-here</span> <span class="pre">/</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">page</span> <span class="pre">/</span> <span class="pre">document</span> <span class="pre">etc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Fix:</span> <span class="pre">confusing</span> <span class="pre">paragraph</span> <span class="pre">on</span> <span class="pre">Python</span> <span class="pre">packaging</span> <span class="pre">with</span> <span class="pre">Hatch</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Add:</span> <span class="pre">page</span> <span class="pre">on</span> <span class="pre">using</span> <span class="pre">pixi</span> <span class="pre">for</span> <span class="pre">dependencies</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Description:</strong> A detailed explanation of the issue or feature request,
+including context, background information, and the reason for the request.
+Explain why the issue is important and what problem it solves.</p></li>
+<li><p><strong>Screenshots/code samples:</strong> Include screenshots, code snippets, links, or
+any other relevant files that can help others in understanding the issue
+better.</p></li>
+<li><p><strong>Possible solutions/recommendations:</strong> It’s helpful to provide any ideas or
+suggestions for how to address the issue, which can help guide contributors
+towards a solution.</p></li>
+<li><p><strong>Related issues or pull requests:</strong> Add references to any related issues or
+pull requests, which provides additional context and understanding of the
+broader scope of the issue.</p></li>
+</ul>
+<section id="if-you-are-reporting-a-code-bug">
+<h3>If you are reporting a code bug<a class="headerlink" href="#if-you-are-reporting-a-code-bug" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Steps to reproduce (for bugs):</strong> A step-by-step guide (generally a list or
+narrative) on how to reproduce the issue, including relevant code snippets,
+commands, or configurations.</p></li>
+<li><p><strong>Expected vs. actual behavior (for bugs):</strong> A description of what you
+expected to happen and what actually happened. This helps in understanding
+the discrepancy and the impact of the bug.</p></li>
+<li><p><strong>Environment details (for bugs):</strong> Details about the environment where the
+issue was observed, such as operating system, Python version, library
+versions, and any other relevant software/hardware details.</p></li>
+</ul>
+</section>
+<section id="if-you-have-permissions-label-the-issue">
+<h3>If you have permissions, label the issue<a class="headerlink" href="#if-you-have-permissions-label-the-issue" title="Link to this heading">#</a></h3>
+<p>While outside contributors will not have permission to label issues, pyOpenSci
+core team members and volunteers will. Be sure to add appropriate labels to
+issues to make them easier to triage.</p>
+</section>
+</section>
+<section id="help-wanted-sprintable-issues">
+<h2>Help-wanted / sprintable issues<a class="headerlink" href="#help-wanted-sprintable-issues" title="Link to this heading">#</a></h2>
+<p>If an issue is something that anyone in the community could potentially address,
+it’s ideal to label the issue with <code class="docutils literal notranslate"><span class="pre">help-wanted</span></code> and/or <code class="docutils literal notranslate"><span class="pre">sprintable</span></code>. A
+sprintable issue refers to an issue that could be completed or worked on during
+a 1-2 day sprint, thus it should be smaller and more confined in scope. A
+help-wanted issue is one that anyone is welcome to work on during whatever time
+they have available.</p>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">help-wanted</span></code> or <code class="docutils literal notranslate"><span class="pre">sprintable</span></code> issue label is added, the issue will be
+automatically added to our
+<a class="reference external" href="https://github.com/orgs/pyOpenSci/projects/3">pyOpenSci help-wanted board</a>.
+This automation is implemented currently for a single repository (the packaging
+guide), but we plan to implement it for other repositories using the
+add-to-project GitHub action.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The issue will be archived from the project board once it is closed.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../events/sprints.html"><span class="doc std std-doc">Learn more about pyOpenSci sprint events.</span></a></p>
+</div>
+<p>If an issue is unclear, a pyOpenSci staff member or designated community member
+can ask the issue author to provide more information.</p>
+</section>
+<section id="issue-maintenance">
+<h2>Issue maintenance<a class="headerlink" href="#issue-maintenance" title="Link to this heading">#</a></h2>
+<p>Our goal at pyOpenSci is to keep our list of issues current and active.
+Quarterly issue cleanup sessions are implemented to ensure issues are either
+being actively addressed or to assess whether older or stale issues can
+potentially be closed.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="our-repositories.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">pyOpenSci GitHub repositories</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pull-requests.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2. pyOpenSci Pull Request Process</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guidelines-for-new-issues">Guidelines for new issues</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-are-reporting-a-code-bug">If you are reporting a code bug</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-have-permissions-label-the-issue">If you have permissions, label the issue</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#help-wanted-sprintable-issues">Help-wanted / sprintable issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issue-maintenance">Issue maintenance</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/pyopensci/governance/edit/main/community/github/issues.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/community/github/issues.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, pyOpenSci.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

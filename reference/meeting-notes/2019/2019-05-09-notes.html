@@ -1,0 +1,878 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="pyOpenSci Meeting Notes - 9 May 2019" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.pyopensci.org/governance/reference/meeting-notes/2019/2019-05-09-notes.html" />
+<meta property="og:site_name" content="pyOpenSci Python Package Guide" />
+<meta property="og:description" content="https://hackmd.io/ewQZvQdFSteXh3OXJIJPdw Attendees: Leah Wasser (Earth Lab, CU Boulder), Kylen Solvik (Earth Lab, CU Boulder), Lindsey Heagy (Berkeley), Neil Chue Hong (Software Sustainability Inst..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="https://www.pyopensci.org/governance/_images/social_previews/summary_reference_meeting-notes_2019_2019-05-09-notes_c6bbc677.png" />
+<meta property="og:image:alt" content="https://hackmd.io/ewQZvQdFSteXh3OXJIJPdw Attendees: Leah Wasser (Earth Lab, CU Boulder), Kylen Solvik (Earth Lab, CU Boulder), Lindsey Heagy (Berkeley), Neil..." />
+<meta name="description" content="https://hackmd.io/ewQZvQdFSteXh3OXJIJPdw Attendees: Leah Wasser (Earth Lab, CU Boulder), Kylen Solvik (Earth Lab, CU Boulder), Lindsey Heagy (Berkeley), Neil Chue Hong (Software Sustainability Inst..." />
+<meta name="twitter:card" content="summary_large_image" />
+    <link href="https://www.pyopensci.org/images/favicon.ico" rel="icon" type="image/x-icon">
+    <title>pyOpenSci Meeting Notes - 9 May 2019 &#8212; pyOpenSci Handbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pyos-sphinx-theme.css?v=fb569b27" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@400;700&family=Work+Sans:wght@400;700" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/meeting-notes/2019/2019-05-09-notes';</script>
+    <script src="../../../_static/matomo.js?v=918da087"></script>
+    <link rel="canonical" href="https://www.pyopensci.org/governance/reference/meeting-notes/2019/2019-05-09-notes.html" />
+    <link rel="icon" href="https://www.pyopensci.org/images/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="pyOpenSci Meeting Notes - 30 May 2019" href="2019-05-30-notes.html" />
+    <link rel="prev" title="pyOpenSci Meeting Notes - 18 April 2019" href="2019-04-18-notes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content"><p><a href='https://www.pyopensci.org/software-peer-review/about/intro.html'>Submit Your Python Package for Peer Review - Learn More!</a></p></div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-light-mode.png" class="logo__image only-light" alt="pyOpenSci Handbook. The pyOpenSci logo is a purple flower with pyOpenSci under it. The o in open sci is the center of the flower"/>
+    <img src="../../../_static/logo-dark-mode.png" class="logo__image only-dark pst-js-only" alt="pyOpenSci Handbook. The pyOpenSci logo is a purple flower with pyOpenSci under it. The o in open sci is the center of the flower"/>
+  
+  
+    <p class="title logo__title">Handbook</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../../governance/index.html">
+    Structure & Values
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../community/index.html">
+    Community
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../organization/index.html">
+    Organization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../CODE_OF_CONDUCT.html">
+    Code of Conduct
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../CONTRIBUTING.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../CHANGELOG.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.pyopensci.org">
+    pyOpenSci Website
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://www.pyopensci.org/python-package-guide">
+    Packaging Guide
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://pyopensci.org/peer-review-guide">
+    Peer Review Guide
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyopensci/governance" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyOpenSci" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../../governance/index.html">
+    Structure & Values
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../community/index.html">
+    Community
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../organization/index.html">
+    Organization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../CODE_OF_CONDUCT.html">
+    Code of Conduct
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../CONTRIBUTING.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../CHANGELOG.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.pyopensci.org">
+    pyOpenSci Website
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://www.pyopensci.org/python-package-guide">
+    Packaging Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://pyopensci.org/peer-review-guide">
+    Peer Review Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyopensci/governance" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyOpenSci" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Organization Structure</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../governance/index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../governance/mission-values.html">Mission and values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../governance/structure.html">Structure and leadership</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Information</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">pyOpenSci Meeting Notes Archive</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../executive-council/intro.html">2024 EC Minutes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../executive-council/2024-executive-council-minutes.html">pyOpenSci Executive Council Minutes 2024</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../2021/intro-2021.html">2021 Notes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../2021/2021-05-17-software-review-scipy-notes.html">Meeting Notes 17 May 2021</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../2020/intro-2020.html">2020 Notes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../2020/2020-02-28-notes.html">pyOpenSci Meeting Notes - 28 Feb 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2020/2020-04-09-notes.html">pyOpenSci Meeting Notes - 9 April 2020</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="intro-2019.html">2019 Notes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="2019-01-11-notes.html">PyOpenSci Meeting Notes - 11 Jan 2019</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="2019-01-31-notes.html">PyOpenSci Meeting Notes - 31 Jan 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-03-06-notes.html">pyOpenSci Meeting Notes - 6 March 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-03-14-joss-discussion-notes.html">pyOpenSci meeting notes: 3-14-2019 JOSS / pyOpenSci Collaboration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-03-21-notes.html">pyOpenSci Meeting Notes - 21 March 2019</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="2019-04-04-notes.html">pyOpenSci Meeting Notes - 4 April 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-04-18-notes.html">pyOpenSci Meeting Notes - 18 April 2019</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">pyOpenSci Meeting Notes - 9 May 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-05-30-notes.html">pyOpenSci Meeting Notes - 30 May 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-06-20-notes.html">pyOpenSci Meeting Notes - 20 June 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-08-01-notes.html">pyOpenSci Meeting Notes - 1 August 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-08-22-notes.html">pyOpenSci Meeting Notes - 22 August 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-09-20-notes.html">pyOpenSci Meeting Notes - 20 September</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-10-03-notes.html">pyOpenSci Meeting Notes - 3 October 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-10-24-notes.html">pyOpenSci Meeting Notes - 24 october 2019</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../2018/intro-2018.html">2018 Notes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../2018/2018-10-09-notes.html">10 October 2018: JOSS / pyOpenSci Collaboration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2018/2018-10-26-notes.html">Meeting Notes - 26 Oct 2018</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2018/2018-11-16-notes.html">Meeting Notes - 16 Nov 2018</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2018/2018-12-07-notes.html">Meeting Notes - 7 Dec 2018</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Our Programs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../programs/index.html">Programs (coming soon)</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../governance/index.html" class="nav-link">Governance, Structure &amp; Values</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">pyOpenSci Meeting Notes Archive</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="intro-2019.html" class="nav-link">2019 Notes</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pyOpenSci Meeting Notes - 9 May 2019</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pyopensci-meeting-notes-9-may-2019">
+<h1>pyOpenSci Meeting Notes - 9 May 2019<a class="headerlink" href="#pyopensci-meeting-notes-9-may-2019" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://hackmd.io/ewQZvQdFSteXh3OXJIJPdw">https://hackmd.io/ewQZvQdFSteXh3OXJIJPdw</a></p>
+<section id="attendees">
+<h2>Attendees<a class="headerlink" href="#attendees" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Leah Wasser (Earth Lab, CU Boulder)</p></li>
+<li><p>Kylen Solvik (Earth Lab, CU Boulder)</p></li>
+<li><p>Lindsey Heagy (Berkeley)</p></li>
+<li><p>Neil Chue Hong (Software Sustainability Institute)</p></li>
+<li><p>Jenny Palomino (Earth Lab, CU Boulder)</p></li>
+<li><p>Max Joseph (Earth Lab, CU Boulder)</p></li>
+<li><p>Luiz Irber (UC Davis)</p></li>
+<li><p>Leonardo Uieda (University of Hawaii at Manoa)</p></li>
+<li><p>Noam Ross (EcoHealth Alliance / rOpenSci)</p></li>
+</ul>
+</section>
+<section id="agenda">
+<h2>Agenda<a class="headerlink" href="#agenda" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>More new colleagues!</p></li>
+<li><p>JOSS update – partnership is in place!!</p></li>
+<li><p>SciPy bof submitted!!</p></li>
+<li><p>Review process – where should the review template live to make it easier for people to find?</p>
+<ol class="arabic simple">
+<li><p>Create issues in package repo ala JOSS or do it all in the software-review repo ala rOpenSci? <a class="github reference external" href="https://github.com/pyOpenSci/dev_guide/issues/17">pyOpenSci/dev_guide#17</a></p></li>
+<li><p>Currently sits: <a class="reference external" href="https://www.pyopensci.org/dev_guide/appendices/templates.html#review-template">https://www.pyopensci.org/dev_guide/appendices/templates.html#review-template</a></p></li>
+</ol>
+<ul class="simple">
+<li><p>NEIL – didn’t have an issue finding the template. he’d like to see it in the email AND the comment for the review … so maybe the editor should do this OR Whedon the bot could do this??</p></li>
+<li><p>also in the guidances for reviewers and authors…</p></li>
+<li><p><a class="reference external" href="https://pyopensci.discourse.group/">https://pyopensci.discourse.group/</a></p></li>
+<li><p>Luiz: maybe create a review issue template, so the checklist doesn’t need to be copied? example: <a class="github reference external" href="https://github.com/datrs/hypercore/tree/master/.github/ISSUE_TEMPLATE">datrs/hypercore</a></p>
+<ul>
+<li><p>have one template for review, another for pre-review, and submissions</p></li>
+<li><p>Kylen: We have issue templates for submission and pre-submission. Haven’t made one for review because they are comments on existing issues, not new issues by themselves. Is there the option to create a comment template?</p>
+<ul>
+<li><p>Luiz: I don’t think there is… sorry, I was thinking on the JOSS structure (where there is a pre-review and a review issue)</p></li>
+</ul>
+</li>
+<li><p>Kylen (again): You can create saved replies in your own account, but not sure if you can create them on the repo/organization level. I’ll keep looking into this.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Whedon the bot update / Discussion with Noam about rOpenSci goals &amp; efforts</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://hackmd.io/KxM9HK-eSo-x2nkTOSBeow">rOpenSci Requirements based on a discussion with Arfon</a></p></li>
+<li><p><a class="reference external" href="https://hackmd.io/Vw2tyNxZQ5-PItkQFTZqhA">Notes from meeting with Arfon</a></p></li>
+<li><p>NOAM takes the floor:</p>
+<ul>
+<li><p>Ropensci is talking with Arfon as well. JOSS requires a zenodo doi, they want to ensure the version of the package is accepted is linked to a DOI. DOI’s are relevant for JOSS but not explicitly tracked in the ropensci process. The DOI for the final version in the review is used for JOSS.</p></li>
+<li><p>ropensci has a diagnostic package that they use to provide some feedback and it’s run on submission in a standardized envt… and the bot will be able to spit out results</p></li>
+<li><p>They’ve had a few scenarios where authors have requested an updated review. It’s not practical… because it’s resource intensive…</p></li>
+</ul>
+</li>
+<li><p>Current whedon functionality</p></li>
+<li><ul>
+<li><p>one we get feedback on the bot, send all of the input to karthik, arfon and noam</p></li>
+</ul>
+</li>
+<li><p>Linsdey – dashboard with whedon – allows them to look at editor and reviewer loads, etc etc… that is super helpful. JOSS backend might be a google sheet.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="joss-vs-ropensci-review-process">
+<h2>JOSS vs rOpenSci Review process<a class="headerlink" href="#joss-vs-ropensci-review-process" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>JOSS process follows PLOS – minimal requirements whereas rOpenSci is more intense process.</p></li>
+<li><p>LEO: JOSS for example doesn’t have (automated) test requirements. it’s valuable for us to be more strict</p></li>
+<li><p>LUIZ: especially considering curating packages…we want to give our stamp of approval</p></li>
+</ul>
+</section>
+<section id="funding-opportunity-support-via-ropensci">
+<h2>Funding Opportunity support via rOpenSci<a class="headerlink" href="#funding-opportunity-support-via-ropensci" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ropensci applied for funding – to support methods focused packages</p></li>
+<li><p>aggregate, automate and document current ropensci processes</p>
+<ul>
+<li><p>how to create a review community</p></li>
+<li><p>automation</p>
+<ul>
+<li><p>creating reviewer databases</p></li>
+<li><p>Send reminders, etc - create tools to handle this and make it easy for other groups to adopt</p></li>
+<li><p>Write standards for software in a way that can be tested</p>
+<ul>
+<li><p>(Luiz) semi-relevant: <a class="reference external" href="https://www.thoughtworks.com/insights/blog/fitness-function-driven-development">https://www.thoughtworks.com/insights/blog/fitness-function-driven-development</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Noam needs a letter of support by May 16.</p>
+<ul>
+<li><p>One pager: <a class="reference external" href="https://docs.google.com/document/d/1kZStdLA98TvFe1_0r0IuSBPyg-PL_32wBvw599Zu4NM/edit">https://docs.google.com/document/d/1kZStdLA98TvFe1_0r0IuSBPyg-PL_32wBvw599Zu4NM/edit</a></p></li>
+</ul>
+</li>
+<li><p>Support:</p>
+<ul>
+<li><p>+1000 (luiz)</p></li>
+<li><p>:tada: Lindsey</p></li>
+<li><p>This addresses a huge gap! +1 Max</p></li>
+<li><p>+1 leah !!</p></li>
+<li><p>:thumbsup: Jenny</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>First package review check-in: Jenny, Neil, Chris (might not make it)</p>
+<ul class="simple">
+<li><p>leah followed up with filipe. she will ping him again:)</p></li>
+</ul>
+</li>
+<li><p>Second package review – <a class="reference external" href="https://github.com/pyOpenSci/software-review/issues/3">earthpy</a></p>
+<ul class="simple">
+<li><p>Editor needed: Luiz!!</p>
+<ul>
+<li><p>Luiz: I did, and would love to be the editor =]  — YAY!!</p></li>
+</ul>
+</li>
+<li><p>Reviewers:</p>
+<ul>
+<li><p>Carson Farmer (check in with him again)</p></li>
+<li><p>Kylen S.</p></li>
+</ul>
+</li>
+<li><p>Levi Wolf (of PySAL, Contextily, and Geopandas) volunteered to be a future reviewer</p></li>
+</ul>
+</li>
+<li><p>New pre-submission inquiry! <a class="reference external" href="https://github.com/pyOpenSci/software-review/issues/2">pacifica</a></p>
+<ul class="simple">
+<li><p>Please provide your feedback on whether we should encourage a submission in this document (be mindful this document is public so if you are not comfortable with that please email us or speak up during our meeting!!)</p></li>
+<li><p>More info might be helpful here - the provided link is <a class="github reference external" href="https://github.com/pacifica">pacifica</a> but, that has many repos. It might be easier to review if we are reviewing one repository, rather than many repositories.</p></li>
+<li><p>The core repository is a Docker compose pipeline (<a class="github reference external" href="https://github.com/pacifica/pacifica">pacifica/pacifica</a>) composed of submodules, each of which is a package - maybe this would be hard to review?</p></li>
+<li><p>rOpenSci has onboarded suites of tools but also didn’t accept a tool that wrapped around another language… given that would be outside of our expertise..</p></li>
+<li><p>a shiny app would not be accepted nor a larger system</p></li>
+<li><p>LUIZ: pyOpenSci is more for lego blocks vs .. do we want to curate small packages or packages that can work together…</p></li>
+<li><p>NOAM: there are different ways that a python “package” could be presented. we might want to define what a package is and means…</p></li>
+<li><p>LEO: for python there is a standard packaging schema but you could have say a web app… that has a different structure. PAcifica does seem to have a set of a few sub packages that have standard python packages..</p></li>
+<li><p>Luiz: would we consider jupyter for example…</p></li>
+<li><p>NEIL: we need to really define the scope of what creates a package and what we will review… perhaps we need  something that refines the scope, the type of package, how it sits within a larger envt, etc…</p></li>
+</ul>
+</li>
+</ol>
+<p>TODO: how do we dfeine the scope of a what a package is….</p>
+<ol class="arabic simple" start="9">
+<li><p>Development glossary – anyone want to contribute and where should we place it? <a class="github reference external" href="https://github.com/pyOpenSci/dev_guide/issues/8">pyOpenSci/dev_guide#8</a></p></li>
+<li><p>PyCon open space feedback (Luiz)</p>
+<ul class="simple">
+<li><p>a quickstart (condensed guide)</p></li>
+<li><p>nanopore interested in contributing software, might be a good venue</p></li>
+<li><p>EBI (European Bioinformatics Institute) has lots of open source packages, but not much marketing</p></li>
+<li><p>.org website feedback</p>
+<ul>
+<li><p>Link discourse to the main page of pyopensci.org: <a class="reference external" href="https://pyopensci.discourse.group/">https://pyopensci.discourse.group/</a></p></li>
+<li><p>.org website – too overwhelming for someone new??</p></li>
+</ul>
+</li>
+<li><p>accept submissions to pyOpenSci that are already JOSS papers?</p>
+<ul>
+<li><p>another fast track?</p></li>
+<li><p>makes sense for the “curated packages” approach</p></li>
+</ul>
+</li>
+<li><p>requirements?</p>
+<ul>
+<li><p>code coverage? (no)</p>
+<ul>
+<li><p>ropensci doesn’t have a % coverage but automated testing and CI is required. The code coverage is required to be reported. if the coverage is low, you have to justify it to the editor…</p></li>
+</ul>
+</li>
+<li><p>stable versions (semantic versioning?)</p></li>
+<li><p>Link to current reqs: <a class="reference external" href="https://www.pyopensci.org/dev_guide/packaging/packaging_guide.html#overview">https://www.pyopensci.org/dev_guide/packaging/packaging_guide.html#overview</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="to-do-takeaways-for-everyone">
+<h2>To Do Takeaways - For Everyone<a class="headerlink" href="#to-do-takeaways-for-everyone" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Please review the whedon bot requirements and give us feedback
+2. email to arfon, karthik and noam about whatever our requirements end up being for whedon.</p></li>
+<li><p>Please review the pacifica submission and provide your input</p></li>
+<li><p>TODO: how do we dfeine the scope of a what a package is….</p></li>
+<li><p>LUIZ will begin the editor process for review of earthpy</p></li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2019-04-18-notes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">pyOpenSci Meeting Notes - 18 April 2019</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2019-05-30-notes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">pyOpenSci Meeting Notes - 30 May 2019</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attendees">Attendees</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joss-vs-ropensci-review-process">JOSS vs rOpenSci Review process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funding-opportunity-support-via-ropensci">Funding Opportunity support via rOpenSci</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-do-takeaways-for-everyone">To Do Takeaways - For Everyone</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/pyopensci/governance/edit/main/reference/meeting-notes/2019/2019-05-09-notes.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/reference/meeting-notes/2019/2019-05-09-notes.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, pyOpenSci.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>
